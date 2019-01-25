@@ -15,9 +15,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var stackRangeQuestionView: UIStackView!
     
     @IBOutlet var stackSingleButtons: [UIButton] = []
-    @IBOutlet var stackMultipleLabel: [UILabel] = []
     @IBOutlet var stackRangeLabel: [UILabel] = []
     @IBOutlet weak var stackRangeSlider: UISlider!
+    @IBOutlet weak var stackMultipleLabelsStacksView: UIStackView!
+    
+    @IBOutlet var stackMultipleLabelStacks : [UIStackView] = []
+    @IBOutlet var stackMultipleLabelStacksSwitches : [UISwitch] = []
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -41,7 +44,7 @@ class QuestionViewController: UIViewController {
    }
     
     @IBAction func stackMultipleButtonClicked(_ sender: Any) {
-        for sw in stackMultipleSwitch {
+        for sw in stackMultipleLabelStacksSwitches {
             if sw.isOn {
                 answersChosen.append(questions[questionIndex].answers[sw.tag])
             }
@@ -102,11 +105,38 @@ class QuestionViewController: UIViewController {
     }
     
     func updateMultipleStack(using answers: [Answer]) {
-        stackMultipleQuestionView.isHidden = false
-        for i in 0..<stackMultipleLabel.count {
-            stackMultipleLabel[i].text = answers[i].text
-            stackMultipleSwitch[i].isOn = false
+        if !stackMultipleLabelStacks.isEmpty {
+            for stck in stackMultipleLabelStacks {
+                stck.removeFromSuperview()
+            }
+            stackMultipleLabelStacks.removeAll()
+            stackMultipleLabelStacksSwitches.removeAll()
         }
+        
+        for i in 0..<answers.count {
+            let stack = UIStackView()
+            stack.alignment = .center
+            stack.distribution = .fill
+            stack.axis = .horizontal
+            
+            let label = UILabel()
+            label.text = answers[i].text
+            label.textColor = UIColor.black
+            
+            stack.addArrangedSubview(label)
+            
+            let sw = UISwitch()
+            sw.isOn = false
+            sw.tag = i
+            
+            stack.addArrangedSubview(sw)
+            
+            stackMultipleLabelStacks.append(stack)
+            stackMultipleLabelStacksSwitches.append(sw)
+            
+            stackMultipleLabelsStacksView.addArrangedSubview(stack)
+        }
+        stackMultipleQuestionView.isHidden = false
     }
     
     func updateRangedStack(using answers: [Answer]) {
