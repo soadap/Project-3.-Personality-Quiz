@@ -19,6 +19,20 @@ let questArray: [Question] = [
                 Answer(text: "Carrots", type: .rabbit),
                 Answer(text: "Corn", type: .turtle)
         ]),
+    Question(text: "Which food do you like the most?", type:.single,
+             answers: [
+                Answer(text: "Steak", type: .dog),
+                Answer(text: "Fish", type: .cat),
+                Answer(text: "Carrots", type: .rabbit),
+                Answer(text: "Corn", type: .turtle)
+        ]),
+    Question(text: "Which food do you like the most?", type:.single,
+             answers: [
+                Answer(text: "Steak", type: .dog),
+                Answer(text: "Fish", type: .cat),
+                Answer(text: "Carrots", type: .rabbit),
+                Answer(text: "Corn", type: .turtle)
+        ]),
     Question(text: "Which activities do you enjoy?",type: .multiple,
              answers: [
                 Answer(text: "Swimming", type: .turtle),

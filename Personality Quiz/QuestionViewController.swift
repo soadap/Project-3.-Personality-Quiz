@@ -14,9 +14,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var stackMultipleQuestionView: UIStackView!
     @IBOutlet weak var stackRangeQuestionView: UIStackView!
     
-    @IBOutlet var stackSingleButtons: [UIButton]!
-    @IBOutlet var stackMultipleLabel: [UILabel]!
-    @IBOutlet var stackRangeLabel: [UILabel]!
+    @IBOutlet var stackSingleButtons: [UIButton] = []
+    @IBOutlet var stackMultipleLabel: [UILabel] = []
+    @IBOutlet var stackRangeLabel: [UILabel] = []
     @IBOutlet weak var stackRangeSlider: UISlider!
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -81,10 +81,24 @@ class QuestionViewController: UIViewController {
     }
     
     func updateSingleStack(using answers: [Answer]) {
-        stackSingleQuestionView.isHidden = false
-        for i in 0..<stackSingleButtons.count {
-            stackSingleButtons[i].setTitle(answers[i].text, for: .normal)
+        if !stackSingleButtons.isEmpty {
+            for btn in stackSingleButtons {
+                btn.removeFromSuperview()
+            }
+            stackSingleButtons.removeAll()
         }
+        
+        for i in 0..<answers.count {
+            let button = UIButton()
+            button.backgroundColor = self.view.backgroundColor
+            button.setTitleColor(UIColor.blue, for: .normal)
+            button.setTitle(answers[i].text, for: .normal)
+            button.tag = i
+            button.addTarget(self, action: #selector(stackSingleButtonClicked), for: .touchUpInside)
+            stackSingleButtons.append(button)
+            stackSingleQuestionView.addArrangedSubview(button)
+        }
+        stackSingleQuestionView.isHidden = false
     }
     
     func updateMultipleStack(using answers: [Answer]) {
