@@ -27,38 +27,43 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet var stackMultipleSwitch: [UISwitch]!
     
-    var answersChosen: [Answer] = []
+    var currentAnswers : [Answer]!
+    
+    var answersChosen: [String] = []
     var questions: [Question] = []
+    var questionIndex = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        questions = currentQuiz.questions.shuffled()
+        updateUI()
+    }
+    
+   // functions after answer was choosen
     
     @IBAction func stackSingleButtonClicked(_ sender: UIButton) {
-        answersChosen.append(questions[questionIndex].answers[sender.tag])
+        answersChosen.append(currentAnswers[sender.tag].type)
+        
         nextQuestion()
     }
     
     @IBAction func stackRangeButtonClicked(_ sender: Any) {
-        let currentAnswers = questions[questionIndex].answers
         let index = Int(round(stackRangeSlider.value * Float(currentAnswers.count - 1)))
-        answersChosen.append(currentAnswers[index])
-        
+        answersChosen.append(currentAnswers[index].type)
+
         nextQuestion()
    }
     
     @IBAction func stackMultipleButtonClicked(_ sender: Any) {
         for sw in stackMultipleLabelStacksSwitches {
             if sw.isOn {
-                answersChosen.append(questions[questionIndex].answers[sw.tag])
+                answersChosen.append(currentAnswers[sw.tag].type)
             }
         }
         nextQuestion()
     }
     
-    var questionIndex = 0
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        questions = questArray.shuffled()
-        updateUI()
-    }
+    //func to show appropriate stackview for question
     
     func updateUI() {
         stackSingleQuestionView.isHidden = true
@@ -68,20 +73,24 @@ class QuestionViewController: UIViewController {
         navigationItem.title = "Question #\(questionIndex+1)"
         
         let currentQuestion = questions[questionIndex]
-        let currentAnswers = currentQuestion.answers.shuffled()
+        currentAnswers = currentQuestion.answers
         progressView.setProgress((Float(questionIndex)/Float(questions.count)), animated: true)
         
         questionLabel.text = currentQuestion.text
         
         switch currentQuestion.type {
         case .single:
+            currentAnswers.shuffle()
             updateSingleStack(using: currentAnswers)
         case .multiple:
+            currentAnswers.shuffle()
             updateMultipleStack(using: currentAnswers)
         case .ranged:
             updateRangedStack(using: currentAnswers)
         }
     }
+    
+    //functions to update stackview with answers
     
     func updateSingleStack(using answers: [Answer]) {
         if !stackSingleButtons.isEmpty {
@@ -146,6 +155,8 @@ class QuestionViewController: UIViewController {
         stackRangeLabel[1].text = answers.last?.text
     }
     
+    //next question
+    
     func nextQuestion() {
         questionIndex += 1
                
@@ -155,6 +166,8 @@ class QuestionViewController: UIViewController {
             performSegue(withIdentifier: SHOW_RESULT_SEGUE, sender: nil)
         }
     }
+    
+    //segue for view with results
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SHOW_RESULT_SEGUE {

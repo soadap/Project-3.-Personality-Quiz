@@ -10,30 +10,34 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    var responses: [Answer]!
+    var responses: [String]!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDesciption: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        
         calculateResult()
     }
     
     func calculateResult() {
+        var finalAnswer : AnswerChoices!
+        var frequencyOfAnswers: [String: Int] = [:]
         
-        var frequencyOfAnswers: [AnimalType: Int] = [:]
-        let responseTypes = responses.map {$0.type}
-        
-        for response in responseTypes {
+        for response in responses {
             frequencyOfAnswers[response] = (frequencyOfAnswers[response] ?? 0) + 1
         }
         
         let mostCommonAnswer = frequencyOfAnswers.sorted {$0.1 > $1.1}.first!.key
         
-        resultTitle.text = "You are a \(mostCommonAnswer.rawValue)"
-        resultDesciption.text = mostCommonAnswer.definition
+        for final in currentQuiz.answers {
+            if mostCommonAnswer == final.name {
+                finalAnswer = final
+            }
+        }
+        
+        resultTitle.text = "You are a \(finalAnswer.emoji)"
+        resultDesciption.text = finalAnswer.description
     }
     
     

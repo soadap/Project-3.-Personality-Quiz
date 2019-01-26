@@ -16,6 +16,7 @@
 		4C235C4C21F7EDDA00860354 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C235C4B21F7EDDA00860354 /* Model.swift */; };
 		4C235C4E21F7EFF600860354 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C235C4D21F7EFF600860354 /* QuestionViewController.swift */; };
 		4C235C5021F7F00400860354 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C235C4F21F7F00400860354 /* ResultViewController.swift */; };
+		4CF8EEDF21FCBE6700685638 /* QuizDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8EEDE21FCBE6700685638 /* QuizDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4C235C4B21F7EDDA00860354 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4C235C4D21F7EFF600860354 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		4C235C4F21F7F00400860354 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		4CF8EEDE21FCBE6700685638 /* QuizDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				4C235C4F21F7F00400860354 /* ResultViewController.swift */,
 				4C235C3B21F7E68B00860354 /* Main.storyboard */,
 				4C235C4B21F7EDDA00860354 /* Model.swift */,
+				4CF8EEDE21FCBE6700685638 /* QuizDatabase.swift */,
 				4C235C3E21F7E68C00860354 /* Assets.xcassets */,
 				4C235C4021F7E68C00860354 /* LaunchScreen.storyboard */,
 				4C235C4321F7E68C00860354 /* Info.plist */,
@@ -149,6 +152,7 @@
 			files = (
 				4C235C3A21F7E68B00860354 /* WelcomeViewController.swift in Sources */,
 				4C235C4E21F7EFF600860354 /* QuestionViewController.swift in Sources */,
+				4CF8EEDF21FCBE6700685638 /* QuizDatabase.swift in Sources */,
 				4C235C3821F7E68B00860354 /* AppDelegate.swift in Sources */,
 				4C235C4A21F7E85500860354 /* Constants.swift in Sources */,
 				4C235C4C21F7EDDA00860354 /* Model.swift in Sources */,
