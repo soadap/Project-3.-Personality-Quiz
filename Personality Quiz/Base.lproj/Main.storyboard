@@ -215,7 +215,7 @@
                         <viewLayoutGuide key="safeArea" id="iKQ-na-3mI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="kSx-1e-iCv">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="5g6-mi-WMi">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="5g6-mi-WMi">
                             <connections>
                                 <segue destination="sy4-DT-sjp" kind="unwind" unwindAction="unwindToQuizIntroductionWithSegue:" id="l4Y-Ii-cza"/>
                             </connections>

@@ -303,13 +303,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5J4KVTAQEM;
+				DEVELOPMENT_TEAM = Y252DE9Q48;
 				INFOPLIST_FILE = "Personality Quiz/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "soadap.company.Personality-Quiz";
+				PRODUCT_BUNDLE_IDENTIFIER = "soadap.chicago-bootcamp.Personality-Quiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,13 +321,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5J4KVTAQEM;
+				DEVELOPMENT_TEAM = Y252DE9Q48;
 				INFOPLIST_FILE = "Personality Quiz/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "soadap.company.Personality-Quiz";
+				PRODUCT_BUNDLE_IDENTIFIER = "soadap.chicago-bootcamp.Personality-Quiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
